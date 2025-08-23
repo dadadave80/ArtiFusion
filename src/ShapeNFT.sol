@@ -17,6 +17,10 @@ contract ShapeNFT is
     ERC721URIStorageUpgradeable,
     AccessControlUpgradeable
 {
+    //*//////////////////////////////////////////////////////////////////////////
+    //                         CONSTRUCTOR & INITIALIZER
+    //////////////////////////////////////////////////////////////////////////*//
+
     constructor() {
         _disableInitializers();
     }
@@ -30,6 +34,10 @@ contract ShapeNFT is
         _setDefaultRoyalty(_defaultAdmin, 5000); // 0.5%
         _grantRole(DEFAULT_ADMIN_ROLE, _defaultAdmin);
     }
+
+    //*//////////////////////////////////////////////////////////////////////////
+    //                               VIEW FUNCTIONS
+    //////////////////////////////////////////////////////////////////////////*//
 
     function tokenURI(uint256 _tokenId)
         public
@@ -54,6 +62,10 @@ contract ShapeNFT is
     {
         return super.supportsInterface(_interfaceId);
     }
+
+    //*//////////////////////////////////////////////////////////////////////////
+    //                               INTERNAL FUNCTIONS
+    //////////////////////////////////////////////////////////////////////////*//
 
     function _increaseBalance(address _account, uint128 _amount)
         internal
