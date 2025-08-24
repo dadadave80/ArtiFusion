@@ -1,0 +1,3 @@
+LaunchpadTest:testCreateCollection() (gas: 685199)
+LaunchpadTest:testDeployLaunchpad() (gas: 2420)
+LaunchpadTest:testMintToCollection() (gas: 1034088)
