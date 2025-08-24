@@ -1,16 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.30;
 
-interface ILaunchpad {
-    function createCollection(string calldata name, string calldata symbol, string calldata uri)
+import {IAccessControl} from "@openzeppelin/contracts/access/IAccessControl.sol";
+
+interface ILaunchpad is IAccessControl {
+    function createCollection(string calldata name, string calldata uri) external returns (address collection);
+    function mintToCollection(address collection, address to, string calldata imageUri)
         external
-        returns (address collection_);
-
-    function mintFromCollection(address _collection, address _to, string calldata _uri)
-        external
-        returns (uint256 tokenId_, address tbaAddress_);
-
-    function getShapeNFTsByOwner(address _owner) external view returns (address[] memory);
-
+        returns (uint256 tokenId, address tbaAddress);
+    function getShapeNFTsByOwner(address owner) external view returns (address[] memory);
     function getShapeNFTs() external view returns (address[] memory);
+    function getShapeNFTBeacon() external view returns (address);
+    function MINTER_ROLE() external pure returns (bytes32);
 }
