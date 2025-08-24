@@ -55,7 +55,7 @@ contract ShapeNFT is
         __ERC721URIStorage_init();
         __ERC721Royalty_init();
         __AccessControl_init();
-        _setDefaultRoyalty(_defaultAdmin, 5000); // 0.5%
+        _setDefaultRoyalty(_defaultAdmin, 50); // 0.5%
         _grantRole(DEFAULT_ADMIN_ROLE, _defaultAdmin);
         _grantRole(MINTER_ROLE, _defaultAdmin);
         _grantRole(MINTER_ROLE, msg.sender);
