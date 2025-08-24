@@ -49,7 +49,7 @@ export function Header() {
   const isShapeNetwork = chainId === 5555
 
   return (
-    <>
+    <nav className="w-full">
       <header className="w-full py-4 px-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-6">
@@ -212,6 +212,6 @@ export function Header() {
       </header>
 
       <WalletConnectModal isOpen={isWalletModalOpen} onClose={() => setIsWalletModalOpen(false)} />
-    </>
+    </nav>
   )
 }
