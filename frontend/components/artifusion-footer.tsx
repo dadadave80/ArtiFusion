@@ -35,7 +35,7 @@ export function ArtiFusionFooter() {
   return (
     <div className="bg-background">
       <AnimatedSection className="relative bg-background z-10 max-w-7xl mx-auto pt-16" delay={0.4}>
-        <footer className="py-16 px-6 border-t border-border/50">
+        <footer className="py-16 px-6 ">
           <div className="max-w-6xl mx-auto">
             {/* Newsletter Section */}
             <div className="glassmorphism rounded-2xl p-8 mb-12 text-center">
