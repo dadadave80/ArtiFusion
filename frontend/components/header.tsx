@@ -191,7 +191,7 @@ export function Header() {
                     ) : (
                       <Button
                         onClick={() => setIsWalletModalOpen(true)}
-                        className="flex items-center gap-2 glass-morphism border-primary/30 text-primary bg-transparent"
+                        className="flex items-center gap-2 glass-morphism border-primary/30 text-primary hover:text-primary-foreground bg-transparent"
                         variant="outline"
                       >
                         <Wallet className="w-4 h-4" />

@@ -85,7 +85,7 @@ export function ArtiFusionFeatures() {
 
               <div className="flex items-center gap-2 mb-3">
                 <h3 className="text-xl font-semibold">{feature.title}</h3>
-                <Badge variant="secondary" className="text-xs">
+                <Badge variant="secondary" className="text-xs text-nowrap">
                   {feature.badge}
                 </Badge>
               </div>
