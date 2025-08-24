@@ -10,6 +10,7 @@ import {ERC6551Registry} from "erc6551/src/ERC6551Registry.sol";
 
 contract LaunchpadTest is Test {
     ILaunchpad private launchpad;
+    address owner = makeAddr("owner");
     address alice = makeAddr("alice");
     address bob = makeAddr("bob");
 
@@ -25,17 +26,18 @@ contract LaunchpadTest is Test {
 
     function testCreateCollection() public {
         vm.prank(alice);
-        launchpad.createCollection("Test", "TEST", "https://test.com");
+        launchpad.createCollection("Test", "https://test.com");
         assertEq(launchpad.getShapeNFTs().length, 1);
         assertEq(launchpad.getShapeNFTsByOwner(alice).length, 1);
         assertEq(launchpad.getShapeNFTsByOwner(alice)[0], launchpad.getShapeNFTs()[0]);
     }
 
-    function testMintFromCollection() public {
+    function testMintToCollection() public {
+        vm.prank(owner);
+        launchpad.grantRole(launchpad.MINTER_ROLE(), alice);
         vm.prank(alice);
-        launchpad.createCollection("Test", "TEST", "https://test.com");
-        vm.prank(bob);
-        launchpad.mintFromCollection(launchpad.getShapeNFTs()[0], bob, "https://bob.com");
+        launchpad.createCollection("Test", "https://test.com");
+        launchpad.mintToCollection(launchpad.getShapeNFTs()[0], bob, "https://bob.com");
         assertEq(launchpad.getShapeNFTs().length, 1);
         assertEq(IShapeNFT(launchpad.getShapeNFTs()[0]).balanceOf(bob), 1);
     }
