@@ -55,11 +55,14 @@ This project is built for the ShapeCraft hackathon and aims to:
 - Empower creators with AI art tools
 - Innovate with no-loss NFT auctions
 
+## Contract Addresses
+Check [CONTRACT_ADDRESSES.md](CONTRACT_ADDRESSES.md).
+
 ## Contributing
 Pull requests and issues are welcome! Please open an issue to discuss major changes.
 
 ## License
-MIT
+Check [LICENSE.md](LICENSE.md) for more information.
 
 ---
 Made with ❤️ for the ShapeCraft Hackathon.
