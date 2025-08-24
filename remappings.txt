@@ -1,8 +1,15 @@
 @shape-nft/=src/
 @openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
 @openzeppelin/contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/
+@tokenbound/=lib/contracts/src/
+account-abstraction/=lib/contracts/lib/account-abstraction/contracts/
+contracts/=lib/contracts/src/
+ds-test/=lib/contracts/lib/forge-std/lib/ds-test/src/
 erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/
+erc6551/=lib/contracts/lib/erc6551/
 forge-std/=lib/forge-std/src/
 halmos-cheatcodes/=lib/openzeppelin-contracts-upgradeable/lib/halmos-cheatcodes/src/
+multicall-authenticated/=lib/contracts/lib/multicall-authenticated/
 openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/
-openzeppelin-contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/
+openzeppelin-contracts/=lib/contracts/lib/openzeppelin-contracts/
+openzeppelin/=lib/contracts/lib/openzeppelin-contracts/contracts/
