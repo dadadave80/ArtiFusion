@@ -44,14 +44,13 @@ contract ShapeNFT is
     /// @notice Initializes the contract
     /// @param _defaultAdmin Default admin address
     /// @param _name ERC721 name
-    /// @param _symbol ERC721 symbol
-    /// @param _uri Token URI
-    function initialize(address _defaultAdmin, string calldata _name, string calldata _symbol, string calldata _uri)
+    /// @param _imageUri Token image URI
+    function initialize(address _defaultAdmin, string calldata _name, string calldata _imageUri)
         public
         initializer
         returns (address tbaAddress_)
     {
-        __ERC721_init(_name, _symbol);
+        __ERC721_init(_name, "ARTIFUSION");
         __ERC721Enumerable_init();
         __ERC721URIStorage_init();
         __ERC721Royalty_init();
@@ -62,7 +61,7 @@ contract ShapeNFT is
         _grantRole(MINTER_ROLE, msg.sender);
 
         _safeMint(_defaultAdmin, 1);
-        _setTokenURI(1, _uri);
+        _setTokenURI(1, _generateTokenURI(1, _imageUri));
         tbaAddress_ = IERC6551Registry(ERC6551_REGISTRY).createAccount(
             ACCOUNT_V3_IMPLEMENTATION, "", block.chainid, address(this), 1
         );
@@ -74,17 +73,17 @@ contract ShapeNFT is
 
     /// @notice Mints a new token
     /// @param _to Address to mint the token to
-    /// @param _uri Token URI
+    /// @param _imageUri Token image URI
     /// @return tokenId_ Token ID
     /// @return tbaAddress_ Tokenbound Account address
-    function mint(address _to, string calldata _uri)
+    function mint(address _to, string calldata _imageUri)
         external
         onlyRole(MINTER_ROLE)
         returns (uint256 tokenId_, address tbaAddress_)
     {
         tokenId_ = totalSupply() + 1;
         _safeMint(_to, tokenId_);
-        _setTokenURI(tokenId_, _uri);
+        _setTokenURI(tokenId_, _generateTokenURI(tokenId_, _imageUri));
         tbaAddress_ = IERC6551Registry(ERC6551_REGISTRY).createAccount(
             ACCOUNT_V3_IMPLEMENTATION, "", block.chainid, address(this), tokenId_
         );
@@ -153,16 +152,16 @@ contract ShapeNFT is
         return ERC721EnumerableUpgradeable._update(_to, _tokenId, _auth);
     }
 
-    // function _generateTokenURI(uint256 _tokenId) internal view returns (string memory) {
-    //     return string.concat(
-    //         "{",
-    //         '"name": "ShapeNFT",',
-    //         '"description": "ShapeNFT is a collection for ShapeNFT quiz winners",',
-    //         '"image": "',
-    //         _baseURI(),
-    //         "/",
-    //         _tokenId.toString(),
-    //         '"}'
-    //     );
-    // }
+    function _generateTokenURI(uint256 _tokenId, string calldata _imageUri) internal pure returns (string memory) {
+        return string.concat(
+            "{",
+            '"name": "ArtiFusion #',
+            _tokenId.toString(),
+            '",',
+            '"description": "ArtiFusion is a collection of AI generated art",',
+            '"image": "',
+            _imageUri,
+            '"}'
+        );
+    }
 }
