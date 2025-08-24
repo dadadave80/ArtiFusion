@@ -31,5 +31,12 @@ contract LaunchpadTest is Test {
         assertEq(launchpad.getShapeNFTsByOwner(alice)[0], launchpad.getShapeNFTs()[0]);
     }
 
+    function testMintFromCollection() public {
+        vm.prank(alice);
+        launchpad.createCollection("Test", "TEST", "https://test.com");
+        vm.prank(bob);
+        launchpad.mintFromCollection(launchpad.getShapeNFTs()[0], bob, "https://bob.com");
+        assertEq(launchpad.getShapeNFTs().length, 1);
+        assertEq(IShapeNFT(launchpad.getShapeNFTs()[0]).balanceOf(bob), 1);
     }
 }
