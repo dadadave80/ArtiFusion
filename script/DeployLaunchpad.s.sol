@@ -9,10 +9,10 @@ import {BeaconProxy} from "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol"
 
 contract DeployLaunchpad is Script {
     function run() public returns (address launchpad_) {
-        vm.broadcast();
+        vm.startBroadcast();
         UpgradeableBeacon beacon = new UpgradeableBeacon(address(new ShapeNFT()), msg.sender);
         BeaconProxy beaconProxy = new BeaconProxy(address(beacon), "");
-        vm.broadcast();
         launchpad_ = address(new Launchpad(address(beaconProxy)));
+        vm.stopBroadcast();
     }
 }
