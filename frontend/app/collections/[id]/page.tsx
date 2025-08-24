@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Progress } from "@/components/ui/progress"
 import { Shield, Eye, Plus, Minus, ExternalLink, Clock, CheckCircle, AlertCircle } from "lucide-react"
-import { useWeb3 } from "@/contexts/web3-context"
+import { useAccount } from 'wagmi';
 
 // Mock collection data
 const mockCollection = {
@@ -130,7 +130,7 @@ const mockActivity = [
 ]
 
 export default function CollectionDetailPage({ params }: { params: { id: string } }) {
-    const { isConnected, account } = useWeb3()
+    const { address, isConnected } = useAccount();
     const [mintQuantity, setMintQuantity] = useState(1)
     const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false)
     const [transactionStatus, setTransactionStatus] = useState<"idle" | "pending" | "success" | "error">("idle")
@@ -141,7 +141,7 @@ export default function CollectionDetailPage({ params }: { params: { id: string 
     const gasEstimate = "0.003"
 
     const handleMint = async () => {
-        if (!isConnected || !account) {
+        if (!isConnected || !address) {
             alert("Please connect your wallet first")
             return
         }

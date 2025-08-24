@@ -1,10 +1,20 @@
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css'
-import { Web3Provider } from '@/contexts/web3-context'
 import { Header } from '@/components/header'
 import { ArtiFusionFooter } from '@/components/artifusion-footer'
+import { Providers } from '@/contexts/provider'
+import { Toaster } from 'sonner';
+
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'ArtiFusion - AI-Powered No-Loss NFT Auctions',
@@ -32,22 +42,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className='bg-background'>
-      <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
-      </head>
-      <body >
-        <Web3Provider>
+    <html lang="en" className='bg-background' suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Providers>
           <Header />
           {children}
           <ArtiFusionFooter />
-        </Web3Provider>
+          <Toaster position="top-right" richColors />
+        </Providers>
       </body>
     </html>
   )
