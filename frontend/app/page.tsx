@@ -3,7 +3,6 @@ import { ArtiFusionFeatures } from "@/components/artifusion-features"
 import { ArtiFusionStats } from "@/components/artifusion-stats"
 import { ArtiFusionTestimonials } from "@/components/artifusion-testimonials"
 import { ArtiFusionCTA } from "@/components/artifusion-cta"
-import { ArtiFusionFooter } from "@/components/artifusion-footer"
 import { AnimatedSection } from "@/components/animated-section"
 
 export default function ArtiFusionLanding() {
@@ -28,10 +27,6 @@ export default function ArtiFusionLanding() {
 
         <AnimatedSection className="relative z-10 max-w-7xl mx-auto mt-16" delay={0.4}>
           <ArtiFusionCTA />
-        </AnimatedSection>
-
-        <AnimatedSection className="relative z-10 max-w-7xl mx-auto mt-16" delay={0.5}>
-          <ArtiFusionFooter />
         </AnimatedSection>
       </div>
     </div>
