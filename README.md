@@ -18,7 +18,7 @@ ArtiFusion is a tokenbound NFT launchpad that empowers creators and collectors t
 ## How It Works
 1. **Create a Collection**: Start by uploading an image or providing an AI prompt.
 2. **Minting Process**: The AI generates new images for each mint, based on the original image or prompt.
-3. **Auction & Trade**: List your NFTs in the no-loss auction marketplace. Collectors can participate and win NFTs without risking their bids.
+3. [**Auction & Trade**](Https://github.com/mubarakoke/lossless): List your NFTs in the no-loss auction marketplace. Collectors can participate and win NFTs without risking their bids.
 
 ## Getting Started
 1. **Clone the Repository**
