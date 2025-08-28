@@ -1,3 +1,5 @@
+[![ArtiFusion Banner](https://beige-urban-takin-227.mypinata.cloud/ipfs/bafybeie5gmxvzjcde6d7oic4cb4wrxriyzcozg667c247hbtjdybnlvgdi)](https://artifusion-shape.vercel.app/)
+
 # ArtiFusion: Tokenbound NFT Launchpad
 
 Welcome to **ArtiFusion**, an innovative platform built for the [ShapeCraft Hackathon](https://shape.network/shapecraft#overview)!
