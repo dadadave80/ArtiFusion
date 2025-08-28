@@ -56,7 +56,7 @@ This project is built for the ShapeCraft hackathon and aims to:
 - Innovate with no-loss NFT auctions
 
 ## Demo Video
-[![ArtiFusion Dem](https://gateway.pinata.cloud/ipfs/QmUepzmXhznd1DfGp1qR2QkowXseNdL188uou6QcTMisZ7)](https://youtu.be/OB_l8o3-TwE)
+[![ArtiFusion Demo video](https://gateway.pinata.cloud/ipfs/QmUepzmXhznd1DfGp1qR2QkowXseNdL188uou6QcTMisZ7)](https://youtu.be/39X1D9nL-_8?si=RzrAJt6d955e1tNi)
 
 ## Contract Addresses
 Check [CONTRACT_ADDRESSES.md](CONTRACT_ADDRESSES.md).
